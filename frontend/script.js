@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000/api/v1/summarize";
+const API_BASE_URL = "https://iamsoakash-ai-text-summarizer-backend.hf.space";
 
 // DOM Elements
 const textInput = document.getElementById('textInput');
