@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Summarizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>AI Text Summarizer</h1>
+            <button id="themeToggle" class="theme-toggle">Light Mode</button>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <div class="card input-section">
+                <div class="input-group">
+                    <label for="textInput">Input Text</label>
+                    <textarea id="textInput"
+                        placeholder="Paste your text here (articles, emails, reports)..."></textarea>
+                </div>
+
+                <div class="controls">
+                    <div class="settings">
+                        <div class="setting-item">
+                            <label for="lengthSelect">Length:</label>
+                            <select id="lengthSelect">
+                                <option value="short">Short (Bullet points)</option>
+                                <option value="medium" selected>Medium (Paragraph)</option>
+                                <option value="long">Long (Detailed)</option>
+                            </select>
+                        </div>
+
+                        <div class="setting-item" style="margin-left: 1.5rem;">
+                            <label for="modelSelect">Model:</label>
+                            <select id="modelSelect">
+                                <optgroup label="Recommended (Fast)">
+                                    <option value="auto" selected>Auto Detect (Smart)</option>
+                                    <option value="distilbart">DistilBART (Fast English)</option>
+                                    <option value="t5-small">T5 Small (Lightweight)</option>
+                                </optgroup>
+                                <optgroup label="Advanced (Slower)">
+                                    <option value="pegasus">Pegasus (High Quality)</option>
+                                    <option value="bart-large">BART Large (Detailed)</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="summarizeBtn" class="primary-btn">Summarize</button>
+                </div>
+
+                <!-- Warning Message -->
+                <div id="modelWarning" class="warning-box" style="display: none;">
+                    <span class="warning-icon">!</span>
+                    <span>This model is slow and may take 20–90 seconds.</span>
+                </div>
+            </div>
+
+            <!-- Output Section -->
+            <div class="card output-section">
+                <div class="output-header">
+                    <label>Summary</label>
+                    <button id="copyBtn" class="copy-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button>
+                </div>
+
+                <div id="summaryOutput" class="result-box">
+                    <span style="color: #666; font-style: italic;">Summary will appear here...</span>
+                </div>
+
+                <div id="statsContainer" class="stats" style="display: none;">
+                    <div class="stat-item">Original: <strong id="statOriginal">0</strong> words</div>
+                    <div class="stat-item">Summary: <strong id="statSummary">0</strong> words</div>
+                    <div class="stat-item">Ratio: <strong id="statRatio">0x</strong></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="toast" class="toast">Copied</div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
