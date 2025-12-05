@@ -70,7 +70,7 @@ async function handleSummarize() {
     const timeoutId = setTimeout(() => controller.abort(), 90000);
 
     try {
-        const response = await fetch(API_URL, {
+       const response = await fetch(`${API_URL}/api/v1/summarize`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
