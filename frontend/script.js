@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://iamsoakash-ai-text-summarizer-backend.hf.space";
+const API_URL = "https://iamsoakash-ai-text-summarizer-backend.hf.space";
 
 // DOM Elements
 const textInput = document.getElementById('textInput');
